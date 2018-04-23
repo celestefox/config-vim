@@ -250,26 +250,23 @@ let g:ale_linters = {
 \ 'python': ['flake8'],
 \}
 " Stupid Unicode tricks
-let g:ale_sign_info = "��"
-let g:ale_sign_warning = "��"
-let g:ale_sign_error = "��"
-let g:ale_sign_style_warning = "��"  " get it?  /style/ issues?  wow tough crowd
-let g:ale_sign_style_error = "��"
+let g:ale_sign_info = "🚩"
+let g:ale_sign_warning = "🚨"
+let g:ale_sign_error = "💥"
+let g:ale_sign_style_warning = "💈"  " get it?  /style/ issues?  wow tough crowd
+let g:ale_sign_style_error = "🚨"
 
-" UGH. Fix those?
-" Also, figure out how to adapt the stuff below after these migrations
-
+" Figure out how to translate these into ale
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_standard_generic = 1
 let g:syntastic_css_checkers = ['stylelint']
 
 let g:ycm_server_python_interpreter = '/usr/bin/python'
-let g:ycm_extra_conf_globlist = ['~/src/github.com/mistfox/*','!~/*']
 
 " Airline; use powerline-style glyphs and colors
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#ale#error_symbol = "��"
-let g:airline#extensions#ale#warning_symbol = "��"
+let g:airline#extensions#ale#error_symbol = "🚨"
+let g:airline#extensions#ale#warning_symbol = "🚩"
 "let g:airline_left_sep = "\uE0C6"
 "let g:airline_right_sep = "\uE0C7"
 let g:airline_theme='base16_oceanicnext'
