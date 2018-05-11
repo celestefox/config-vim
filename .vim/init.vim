@@ -117,132 +117,135 @@ autocmd BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | execute 'checktime'
 " Plugins
 
 " add dein to rtp
-set runtimepath+=/home/myst/.vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Begin block of dein plugins
-call dein#begin('/home/myst/.vim')
+if dein#load_state('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
 
-" dein.vim - dark powered plugin manager
-call dein#add('Shougo/dein.vim')
+    " dein.vim - dark powered plugin manager
+    call dein#add('Shougo/dein.vim')
 
-" my colorscheme - solarized
-call dein#add('altercation/vim-colors-solarized')
+    " my colorscheme - solarized
+    call dein#add('altercation/vim-colors-solarized')
 
-" more colorschemes
-call dein#add('tomasr/molokai')
+    " more colorschemes
+    call dein#add('tomasr/molokai')
 
-call dein#add('chriskempson/base16-vim')
+    call dein#add('chriskempson/base16-vim')
 
-" airline and related (mainly the themes)
-" vim-airline: status/tabline for vim 'as light as air'
-" replaces powerline
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
+    " airline and related (mainly the themes)
+    " vim-airline: status/tabline for vim 'as light as air'
+    " replaces powerline
+    call dein#add('vim-airline/vim-airline')
+    call dein#add('vim-airline/vim-airline-themes')
 
-" vim-repeat, enhances the . command to repeat more
-" can be used by many other tpope plugins to make them nicer
-call dein#add('tpope/vim-repeat')
+    " vim-repeat, enhances the . command to repeat more
+    " can be used by many other tpope plugins to make them nicer
+    call dein#add('tpope/vim-repeat')
 
-" other tpope plugins
-"
-" abolish: easily work with multiple variants of a word
-call dein#add('tpope/vim-abolish')
-" unimpaired: pairs of handy bracket mappings
-call dein#add('tpope/vim-unimpaired')
-" surround: quoting/parenthesizing made easy
-call dein#add('tpope/vim-surround')
+    " other tpope plugins
+    "
+    " abolish: easily work with multiple variants of a word
+    call dein#add('tpope/vim-abolish')
+    " unimpaired: pairs of handy bracket mappings
+    call dein#add('tpope/vim-unimpaired')
+    " surround: quoting/parenthesizing made easy
+    call dein#add('tpope/vim-surround')
 
-call dein#add('tpope/vim-commentary')
+    call dein#add('tpope/vim-commentary')
 
-call dein#add('tpope/vim-characterize')
-" fugitive: best git wrapper for vim hands-down
-call dein#add('tpope/vim-fugitive')
-" sleuth: heuristically set buffer options
-call dein#add('tpope/vim-sleuth')
-" markdown - markdown support, simple as that
-call dein#add('tpope/vim-markdown')
+    call dein#add('tpope/vim-characterize')
+    " fugitive: best git wrapper for vim hands-down
+    call dein#add('tpope/vim-fugitive')
+    " sleuth: heuristically set buffer options
+    call dein#add('tpope/vim-sleuth')
+    " markdown - markdown support, simple as that
+    call dein#add('tpope/vim-markdown')
 
-" vim-dispatch - async build/test dispatcher, used by salve/fireplace below
-call dein#add('tpope/vim-dispatch')
-" vim-projectionist - granular project configuration - mostly just set up by
-" salve for me
-call dein#add('tpope/vim-projectionist')
+    " vim-dispatch - async build/test dispatcher, used by salve/fireplace below
+    call dein#add('tpope/vim-dispatch')
+    " vim-projectionist - granular project configuration - mostly just set up by
+    " salve for me
+    call dein#add('tpope/vim-projectionist')
 
-" vim-tmux-focus-events - ...makes focus events work in tmux? :v
-call dein#add('tmux-plugins/vim-tmux-focus-events')
+    " vim-tmux-focus-events - ...makes focus events work in tmux? :v
+    call dein#add('tmux-plugins/vim-tmux-focus-events')
 
-" vim-gitgutter - see a git diff in the 'gutter'
-call dein#add('airblade/vim-gitgutter')
+    " vim-gitgutter - see a git diff in the 'gutter'
+    call dein#add('airblade/vim-gitgutter')
 
-" denite.nvim - dark powered async unite.vim
-call dein#add('Shougo/denite.nvim')
-" unite.vim - unite and create user interfaces
-"call dein#add('Shougo/unite.vim')
-" ctrlp.vim - fuzzy anything-finder
-" obsoleted by unite, and then denite, above
-"call dein#add('ctrlpvim/ctrlp.vim')
+    " denite.nvim - dark powered async unite.vim
+    call dein#add('Shougo/denite.nvim')
+    " unite.vim - unite and create user interfaces
+    "call dein#add('Shougo/unite.vim')
+    " ctrlp.vim - fuzzy anything-finder
+    " obsoleted by unite, and then denite, above
+    "call dein#add('ctrlpvim/ctrlp.vim')
 
-" gundo.vim - visualize your undo tree
-call dein#add('sjl/gundo.vim')
+    " gundo.vim - visualize your undo tree
+    call dein#add('sjl/gundo.vim')
 
-" supertab - perform all your insert mode completions with tab
-" YCM is enough
-"call dein#add('ervandew/supertab')
+    " supertab - perform all your insert mode completions with tab
+    " YCM is enough
+    "call dein#add('ervandew/supertab')
 
-" rust.vim - official rust support for vim
-call dein#add('rust-lang/rust.vim')
+    " rust.vim - official rust support for vim
+    call dein#add('rust-lang/rust.vim')
 
-" vim-javascript - syntax highlighting for js
-call dein#add('pangloss/vim-javascript')
+    " vim-javascript - syntax highlighting for js
+    call dein#add('pangloss/vim-javascript')
 
-" vim-polyglot - hundreds of languages packaged together.
-call dein#add('sheerun/vim-polyglot')
+    " vim-polyglot - hundreds of languages packaged together.
+    call dein#add('sheerun/vim-polyglot')
 
-" webapi-vim - an interface to various types of web apis
-" used by an optional feature of rust.vim
-call dein#add('mattn/webapi-vim')
+    " webapi-vim - an interface to various types of web apis
+    " used by an optional feature of rust.vim
+    call dein#add('mattn/webapi-vim')
 
-" syntastic.vim - the best syntax checking framework for vim
-" (it's fantastic! it's syntastic!)
-"call dein#add('vim-syntastic/syntastic')
+    " syntastic.vim - the best syntax checking framework for vim
+    " (it's fantastic! it's syntastic!)
+    "call dein#add('vim-syntastic/syntastic')
 
-" ale - Asynchronous Lint Engine
-" replaces syntastic
-call dein#add('w0rp/ale')
+    " ale - Asynchronous Lint Engine
+    " replaces syntastic
+    call dein#add('w0rp/ale')
 
-" YouCompleteMe - a code completion engine for vim
-" It turns out building this is bad on a VPS :P
-"call dein#add('Valloric/YouCompleteMe', {'build': 'python install.py --rust-completer --js-completer'})
-call dein#add('Valloric/YouCompleteMe', {'merged': 0})
+    " YouCompleteMe - a code completion engine for vim
+    " It turns out building this is bad on a VPS :P
+    "call dein#add('Valloric/YouCompleteMe', {'build': 'python install.py --rust-completer --js-completer'})
+    call dein#add('Valloric/YouCompleteMe', {'merged': 0})
 
-""""" Python Plugins
-" python-mode - pylint, rope, pydoc, more
-" broke something else, and YCM is enough nowadays
-"call dein#add('klen/python-mode')
-" jedi-vim - use the jedi autocompletion library in vim
-" YCM is enough nowadays
-"call dein#add('davidhalter/jedi-vim')
+    """"" Python Plugins
+    " python-mode - pylint, rope, pydoc, more
+    " broke something else, and YCM is enough nowadays
+    "call dein#add('klen/python-mode')
+    " jedi-vim - use the jedi autocompletion library in vim
+    " YCM is enough nowadays
+    "call dein#add('davidhalter/jedi-vim')
 
-"""" Lisp
-" fireplace.vim - Clojure repl support
-call dein#add('tpope/vim-fireplace')
-" salve.vim - static support for Leiningen/Boot
-call dein#add('tpope/vim-salve')
+    """" Lisp
+    " fireplace.vim - Clojure repl support
+    call dein#add('tpope/vim-fireplace')
+    " salve.vim - static support for Leiningen/Boot
+    call dein#add('tpope/vim-salve')
 
-"""" Misc
-" vim-wakatime - track coding time with wakatime
-call dein#add('wakatime/vim-wakatime')
+    """" Misc
+    " vim-wakatime - track coding time with wakatime
+    call dein#add('wakatime/vim-wakatime')
 
-" Add or remove your plugins here:
-"call dein#add('Shougo/neosnippet.vim')
-"call dein#add('Shougo/neosnippet-snippets')
+    " Add or remove your plugins here:
+    "call dein#add('Shougo/neosnippet.vim')
+    "call dein#add('Shougo/neosnippet-snippets')
 
-" You can specify revision/branch/tag.
-"call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+    " You can specify revision/branch/tag.
+    "call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
-" end of dein block, plugins are NOW SOURCED.
-" consider this to be pathogen#infect.
-call dein#end()
+    " end of dein block, plugins are NOW SOURCED.
+    " consider this to be pathogen#infect.
+    call dein#end()
+    call dein#save_state()
+endif
 
 " ALE (linter)
 " Only use flake8 for python, because pylint is huge and impossible to appease
@@ -322,8 +325,8 @@ inoremap <c-w> <c-g>u<c-w>
 nnoremap <F9> :Dispatch<CR>
 
 " Leader
-let mapleader = ","
-let g:mapleader = ","
+"let mapleader = ","
+"let g:mapleader = ","
 
 " Swaps selection with buffer
 vnoremap <C-X> <Esc>`.``gvP``P
@@ -356,10 +359,11 @@ cabbr <expr> %% expand('%:.:h')
 
 """ For plugins
 " gundo
-noremap ,u :GundoToggle<CR>
+noremap <Leader>u :GundoToggle<CR>
 
 " Autocmds to make dispatch even more useful
 " autocmd FileType java let b:dispatch = 'javac %' " example for plain java
+" ...Why do I have this, again?
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -406,6 +410,7 @@ if has("python")
     augroup END
 endif
 
+" Where did this come from
 autocmd Filetype pug setlocal ts=2 sw=2
 autocmd Filetype scss setlocal ts=2 sw=2
 
@@ -418,15 +423,17 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+" This is an absolute mess
 "set t_Co=256  " force 256 colors
-colorscheme solarized
+"colorscheme solarized
+colorscheme base16
 "AirlineTheme molokai
 let g:airline_theme='base16_oceanicnext'
 
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
+"if filereadable(expand("~/.vimrc_background"))
+  "let base16colorspace=256
+  "source ~/.vimrc_background
+"endif
 set termguicolors
 set guifont=Fira\ Code\ Medium\ 12
 
