@@ -1,1 +1,1 @@
-/home/myst/.vim/init.vim
+.vim/init.vim
