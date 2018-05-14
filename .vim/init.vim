@@ -250,7 +250,21 @@ endif
 " ALE (linter)
 " Only use flake8 for python, because pylint is huge and impossible to appease
 let g:ale_linters = {
-\ 'python': ['flake8'],
+\   'python': ['flake8'],
+\}
+let g:ale_fixers = {
+\   'css': [
+\       'prettier',
+\   ],
+\   'json': [
+\       'jq',
+\   ],
+\   'python': [
+\       'yapf',
+\       'isort',
+\       'remove_trailing_lines',
+\       'trim_whitespace',
+\   ],
 \}
 " Stupid Unicode tricks
 let g:ale_sign_info = "��"
