@@ -72,7 +72,9 @@ set showbreak=↳\                     " shown at the start of a wrapped line
 set virtualedit=block                " allow moving visual block into the VOID
 
 " gui stuffs
-set ttymouse=xterm2                  " overrides autodetection so works w/ screen
+if !has('nvim')			    " This was removed in neovim
+  set ttymouse=xterm2                " overrides autodetection so works w/ screen
+endif
 set mouse=a                          " always terminal mouse when possible
 set guifont=Fura\ Code\ Nerd\ Font\ 12
                                      " font i am currently using
@@ -437,7 +439,17 @@ endif
 " This is an absolute mess
 "set t_Co=256  " force 256 colors
 "colorscheme solarized
-colorscheme base16
+
+" Current colorscheme setup.
+" This works with neovim by always looking at the file in ~/.vim, and always
+" keeping a symlink at the neovim location.
+" Currently there should always be a scheme because it's being kept in git I
+" guess, but I'm not sure I really want that so this will always work.
+if filereadable(expand("~/.vim/colors/base16.vim"))
+  colorscheme base16 " Scheme from my setup exists, load it.
+else
+  colorscheme base16-atelier-forest " Fallback scheme, otherwise it errors.
+endif
 "AirlineTheme molokai
 let g:airline_theme='base16_oceanicnext'
 
@@ -446,6 +458,8 @@ let g:airline_theme='base16_oceanicnext'
   "source ~/.vimrc_background
 "endif
 set termguicolors
+" Not sure if I like this. Berfect colors in terminals with 24bit color
+" support always, but it also makes scrolling significantly slower?
 set guifont=Fira\ Code\ Medium\ 12
 
 if has("autocmd")
