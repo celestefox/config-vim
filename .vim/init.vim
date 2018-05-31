@@ -249,15 +249,27 @@ endif
 
 " ALE (linter)
 " Only use flake8 for python, because pylint is huge and impossible to appease
+" Can use mypy too
+" Limit to eslint and flow for js by default because of xo
 let g:ale_linters = {
-\   'python': ['flake8'],
+\   'python': ['flake8', 'mypy'],
+\   'javascript': ['eslint', 'flow'],
 \}
+" No fixers are setup by default, so everything is manual
+" For css: just run through prettier
+" json: same with jq
+" javascript: prettier, again
+" python: heavy handed, reformat, sort imports, and misc generic cleanup in
+" case yapf doesn't get them.
 let g:ale_fixers = {
 \   'css': [
 \       'prettier',
 \   ],
 \   'json': [
 \       'jq',
+\   ],
+\   'javascript': [
+\       'prettier',
 \   ],
 \   'python': [
 \       'yapf',
@@ -276,8 +288,6 @@ let g:ale_sign_style_error = "��"
 " UGH. Fix those?
 " Also, figure out how to adapt the stuff below after these migrations
 
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_standard_generic = 1
 let g:syntastic_css_checkers = ['stylelint']
 
 let g:ycm_server_python_interpreter = '/usr/bin/python'
@@ -337,6 +347,9 @@ inoremap <c-w> <c-g>u<c-w>
 
 " Bind Dispatch to F9 for easy builds
 nnoremap <F9> :Dispatch<CR>
+
+" Easy running of ALEFix
+nmap <F8> <Plug>(ale_fix)
 
 " Leader
 "let mapleader = ","
