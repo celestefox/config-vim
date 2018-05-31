@@ -72,7 +72,9 @@ set showbreak=↳\                     " shown at the start of a wrapped line
 set virtualedit=block                " allow moving visual block into the VOID
 
 " gui stuffs
-set ttymouse=xterm2                  " overrides autodetection so works w/ screen
+if !has('nvim')			    " This was removed in neovim
+  set ttymouse=xterm2                " overrides autodetection so works w/ screen
+endif
 set mouse=a                          " always terminal mouse when possible
 set guifont=Fura\ Code\ Nerd\ Font\ 12
                                      " font i am currently using
@@ -279,24 +281,19 @@ let g:ale_fixers = {
 \   ],
 \}
 " Stupid Unicode tricks
-let g:ale_sign_info = "��"
-let g:ale_sign_warning = "��"
-let g:ale_sign_error = "��"
-let g:ale_sign_style_warning = "��"  " get it?  /style/ issues?  wow tough crowd
-let g:ale_sign_style_error = "��"
+let g:ale_sign_info = "🚩"
+let g:ale_sign_warning = "🚨"
+let g:ale_sign_error = "💥"
+let g:ale_sign_style_warning = "💈"  " get it?  /style/ issues?  wow tough crowd
+let g:ale_sign_style_error = "🚨"
 
-" UGH. Fix those?
-" Also, figure out how to adapt the stuff below after these migrations
-
-let g:syntastic_css_checkers = ['stylelint']
-
+" YCM?
 let g:ycm_server_python_interpreter = '/usr/bin/python'
-let g:ycm_extra_conf_globlist = ['~/src/github.com/mistfox/*','!~/*']
 
 " Airline; use powerline-style glyphs and colors
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#ale#error_symbol = "��"
-let g:airline#extensions#ale#warning_symbol = "��"
+let g:airline#extensions#ale#error_symbol = "🚨"
+let g:airline#extensions#ale#warning_symbol = "🚩"
 "let g:airline_left_sep = "\uE0C6"
 "let g:airline_right_sep = "\uE0C7"
 let g:airline_theme='base16_oceanicnext'
@@ -453,7 +450,17 @@ endif
 " This is an absolute mess
 "set t_Co=256  " force 256 colors
 "colorscheme solarized
-colorscheme base16
+
+" Current colorscheme setup.
+" This works with neovim by always looking at the file in ~/.vim, and always
+" keeping a symlink at the neovim location.
+" Currently there should always be a scheme because it's being kept in git I
+" guess, but I'm not sure I really want that so this will always work.
+if filereadable(expand("~/.vim/colors/base16.vim"))
+  colorscheme base16 " Scheme from my setup exists, load it.
+else
+  colorscheme base16-atelier-forest " Fallback scheme, otherwise it errors.
+endif
 "AirlineTheme molokai
 let g:airline_theme='base16_oceanicnext'
 
@@ -462,6 +469,8 @@ let g:airline_theme='base16_oceanicnext'
   "source ~/.vimrc_background
 "endif
 set termguicolors
+" Not sure if I like this. Berfect colors in terminals with 24bit color
+" support always, but it also makes scrolling significantly slower?
 set guifont=Fira\ Code\ Medium\ 12
 
 if has("autocmd")
