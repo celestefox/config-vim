@@ -1,0 +1,15 @@
+*
+!/.vim
+!/.vim/backup
+!/.vim/backup/.keep
+!/.vim/colors
+!/.vim/colors/base16.vim
+!/.vim/colors/.keep
+!/.vim/init.vim
+!/.vimrc
+!/.vim/swap
+!/.vim/swap/.keep
+!/.vim/undo
+!/.vim/undo/.keep
+!/.gitignore.d
+!/.gitignore.d/vim
