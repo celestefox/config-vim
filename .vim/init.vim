@@ -201,6 +201,16 @@ if dein#load_state('~/.cache/dein')
     " vim-polyglot - hundreds of languages packaged together.
     call dein#add('sheerun/vim-polyglot')
 
+    " rainbow - maybe I won't be as clueless now. Probably
+    " not, but I can wish. <Something like paredit, that I also know how to
+    " use, would be reeeeeeal nice.>
+    " Side note: the things above were parens but that broke things badly?
+    " Bad parsing code in dein or something it looked like from the glimpse of
+    " the error? :shrug:
+    " I originally tried to use something that didn't work and followed a
+    " chain of updates to find this one.
+    call dein#add('luochen1990/rainbow')
+
     " webapi-vim - an interface to various types of web apis
     " used by an optional feature of rust.vim
     call dein#add('mattn/webapi-vim')
@@ -220,7 +230,7 @@ if dein#load_state('~/.cache/dein')
 
     """"" Python Plugins
     " python-mode - pylint, rope, pydoc, more
-    " broke something else, and YCM is enough nowadays
+    " broke something else, and YCM is enough nowadays <said eevee iirc?>
     "call dein#add('klen/python-mode')
     " jedi-vim - use the jedi autocompletion library in vim
     " YCM is enough nowadays
@@ -333,6 +343,9 @@ nnoremap <silent> g/ :Denite grep<cr>
 
 " Polyglot; disable the language packs I have installed already
 let g:polyglot_disabled = ['javascript', 'rust']
+
+" rainbow
+let g:rainbow_active = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bindings
