@@ -263,9 +263,12 @@ endif
 " Only use flake8 for python, because pylint is huge and impossible to appease
 " Can use mypy too
 " Limit to eslint and flow for js by default because of xo
+" I don't care *which* linter was being so frustrating and useless w/ html I
+" just want it gone
 let g:ale_linters = {
 \   'python': ['flake8', 'mypy'],
 \   'javascript': ['eslint', 'flow'],
+\   'html': ['htmlhint', 'tidy'],
 \}
 " No fixers are setup by default, so everything is manual
 " For css: just run through prettier
