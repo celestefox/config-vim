@@ -3,7 +3,7 @@
 
 " base16-vim (https://github.com/chriskempson/base16-vim)
 " by Chris Kempson (http://chriskempson.com)
-" Harmonic16 Dark scheme by Jannik Siebert (https://github.com/janniks)
+" Atelier Forest Light scheme by Bram de Haan (http://atelierbramdehaan.nl)
 
 " This enables the coresponding base16-shell script to run so that
 " :colorscheme works in terminals supported by base16-shell scripts
@@ -11,43 +11,43 @@
 "   let g:base16_shell_path=base16-builder/output/shell/
 if !has('gui_running')
   if exists("g:base16_shell_path")
-    execute "silent !/bin/sh ".g:base16_shell_path."/base16-harmonic-dark.sh"
+    execute "silent !/bin/sh ".g:base16_shell_path."/base16-atelier-forest-light.sh"
   endif
 endif
 
 " GUI color definitions
-let s:gui00        = "0b1c2c"
-let g:base16_gui00 = "0b1c2c"
-let s:gui01        = "223b54"
-let g:base16_gui01 = "223b54"
-let s:gui02        = "405c79"
-let g:base16_gui02 = "405c79"
-let s:gui03        = "627e99"
-let g:base16_gui03 = "627e99"
-let s:gui04        = "aabcce"
-let g:base16_gui04 = "aabcce"
-let s:gui05        = "cbd6e2"
-let g:base16_gui05 = "cbd6e2"
-let s:gui06        = "e5ebf1"
-let g:base16_gui06 = "e5ebf1"
-let s:gui07        = "f7f9fb"
-let g:base16_gui07 = "f7f9fb"
-let s:gui08        = "bf8b56"
-let g:base16_gui08 = "bf8b56"
-let s:gui09        = "bfbf56"
-let g:base16_gui09 = "bfbf56"
-let s:gui0A        = "8bbf56"
-let g:base16_gui0A = "8bbf56"
-let s:gui0B        = "56bf8b"
-let g:base16_gui0B = "56bf8b"
-let s:gui0C        = "568bbf"
-let g:base16_gui0C = "568bbf"
-let s:gui0D        = "8b56bf"
-let g:base16_gui0D = "8b56bf"
-let s:gui0E        = "bf568b"
-let g:base16_gui0E = "bf568b"
-let s:gui0F        = "bf5656"
-let g:base16_gui0F = "bf5656"
+let s:gui00        = "f1efee"
+let g:base16_gui00 = "f1efee"
+let s:gui01        = "e6e2e0"
+let g:base16_gui01 = "e6e2e0"
+let s:gui02        = "a8a19f"
+let g:base16_gui02 = "a8a19f"
+let s:gui03        = "9c9491"
+let g:base16_gui03 = "9c9491"
+let s:gui04        = "766e6b"
+let g:base16_gui04 = "766e6b"
+let s:gui05        = "68615e"
+let g:base16_gui05 = "68615e"
+let s:gui06        = "2c2421"
+let g:base16_gui06 = "2c2421"
+let s:gui07        = "1b1918"
+let g:base16_gui07 = "1b1918"
+let s:gui08        = "f22c40"
+let g:base16_gui08 = "f22c40"
+let s:gui09        = "df5320"
+let g:base16_gui09 = "df5320"
+let s:gui0A        = "c38418"
+let g:base16_gui0A = "c38418"
+let s:gui0B        = "7b9726"
+let g:base16_gui0B = "7b9726"
+let s:gui0C        = "3d97b8"
+let g:base16_gui0C = "3d97b8"
+let s:gui0D        = "407ee7"
+let g:base16_gui0D = "407ee7"
+let s:gui0E        = "6666ea"
+let g:base16_gui0E = "6666ea"
+let s:gui0F        = "c33ff3"
+let g:base16_gui0F = "c33ff3"
 
 " Terminal color definitions
 let s:cterm00        = "00"
@@ -100,22 +100,22 @@ endif
 
 " Neovim terminal colours
 if has("nvim")
-  let g:terminal_color_0 =  "#0b1c2c"
-  let g:terminal_color_1 =  "#bf8b56"
-  let g:terminal_color_2 =  "#56bf8b"
-  let g:terminal_color_3 =  "#8bbf56"
-  let g:terminal_color_4 =  "#8b56bf"
-  let g:terminal_color_5 =  "#bf568b"
-  let g:terminal_color_6 =  "#568bbf"
-  let g:terminal_color_7 =  "#cbd6e2"
-  let g:terminal_color_8 =  "#627e99"
-  let g:terminal_color_9 =  "#bf8b56"
-  let g:terminal_color_10 = "#56bf8b"
-  let g:terminal_color_11 = "#8bbf56"
-  let g:terminal_color_12 = "#8b56bf"
-  let g:terminal_color_13 = "#bf568b"
-  let g:terminal_color_14 = "#568bbf"
-  let g:terminal_color_15 = "#f7f9fb"
+  let g:terminal_color_0 =  "#f1efee"
+  let g:terminal_color_1 =  "#f22c40"
+  let g:terminal_color_2 =  "#7b9726"
+  let g:terminal_color_3 =  "#c38418"
+  let g:terminal_color_4 =  "#407ee7"
+  let g:terminal_color_5 =  "#6666ea"
+  let g:terminal_color_6 =  "#3d97b8"
+  let g:terminal_color_7 =  "#68615e"
+  let g:terminal_color_8 =  "#9c9491"
+  let g:terminal_color_9 =  "#f22c40"
+  let g:terminal_color_10 = "#7b9726"
+  let g:terminal_color_11 = "#c38418"
+  let g:terminal_color_12 = "#407ee7"
+  let g:terminal_color_13 = "#6666ea"
+  let g:terminal_color_14 = "#3d97b8"
+  let g:terminal_color_15 = "#1b1918"
   let g:terminal_color_background = g:terminal_color_0
   let g:terminal_color_foreground = g:terminal_color_5
   if &background == "light"
@@ -127,7 +127,7 @@ endif
 " Theme setup
 hi clear
 syntax reset
-let g:colors_name = "base16-harmonic-dark"
+let g:colors_name = "base16-atelier-forest-light"
 
 " Highlighting function
 function! g:Base16hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
@@ -173,8 +173,8 @@ call <sid>hi("MatchParen",    "", s:gui03, "", s:cterm03,  "", "")
 call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm0B, "", "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "", "")
 call <sid>hi("Question",      s:gui0D, "", s:cterm0D, "", "", "")
-call <sid>hi("Search",        s:gui03, s:gui0A, s:cterm03, s:cterm0A,  "", "")
-call <sid>hi("Substitute",    s:gui03, s:gui0A, s:cterm03, s:cterm0A, "none", "")
+call <sid>hi("Search",        s:gui01, s:gui0A, s:cterm01, s:cterm0A,  "", "")
+call <sid>hi("Substitute",    s:gui01, s:gui0A, s:cterm01, s:cterm0A, "none", "")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "", "")
 call <sid>hi("TooLong",       s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("Underlined",    s:gui08, "", s:cterm08, "", "", "")
@@ -362,10 +362,10 @@ call <sid>hi("SignifySignChange",  s:gui0D, s:gui01, s:cterm0D, s:cterm01, "", "
 call <sid>hi("SignifySignDelete",  s:gui08, s:gui01, s:cterm08, s:cterm01, "", "")
 
 " Spelling highlighting
-call <sid>hi("SpellBad",     s:gui05, s:gui00, s:cterm05, s:cterm00, "undercurl", s:gui08)
-call <sid>hi("SpellLocal",   s:gui05, s:gui00, s:cterm05, s:cterm00, "undercurl", s:gui0C)
-call <sid>hi("SpellCap",     s:gui05, s:gui00, s:cterm05, s:cterm00, "undercurl", s:gui0D)
-call <sid>hi("SpellRare",    s:gui05, s:gui00, s:cterm05, s:cterm00, "undercurl", s:gui0E)
+call <sid>hi("SpellBad",     "", "", "", "", "undercurl", s:gui08)
+call <sid>hi("SpellLocal",   "", "", "", "", "undercurl", s:gui0C)
+call <sid>hi("SpellCap",     "", "", "", "", "undercurl", s:gui0D)
+call <sid>hi("SpellRare",    "", "", "", "", "undercurl", s:gui0E)
 
 " Startify highlighting
 call <sid>hi("StartifyBracket",  s:gui03, "", s:cterm03, "", "", "")
