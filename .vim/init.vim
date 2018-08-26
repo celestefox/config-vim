@@ -265,10 +265,13 @@ endif
 " Can use mypy too
 " Limit to eslint and flow for js by default because of xo
 " Attempting to get rust to use rls??
+" I don't care *which* linter was being so frustrating and useless w/ html I
+" just want it gone
 let g:ale_linters = {
 \   'python': ['flake8', 'mypy'],
 \   'javascript': ['eslint', 'flow'],
 \   'rust': ['cargo', 'rls'],
+\   'html': ['htmlhint', 'tidy'],
 \}
 " No fixers are setup by default, so everything is manual
 " For css: just run through prettier
