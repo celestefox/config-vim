@@ -161,6 +161,7 @@ if dein#load_state('~/.cache/dein')
     " fugitive: best git wrapper for vim hands-down
     call dein#add('tpope/vim-fugitive')
     " sleuth: heuristically set buffer options
+    " this is causing a weird problem sometimes but i really like it still :c
     call dein#add('tpope/vim-sleuth')
     " markdown - markdown support, simple as that
     call dein#add('tpope/vim-markdown')
@@ -263,9 +264,11 @@ endif
 " Only use flake8 for python, because pylint is huge and impossible to appease
 " Can use mypy too
 " Limit to eslint and flow for js by default because of xo
+" Attempting to get rust to use rls??
 let g:ale_linters = {
 \   'python': ['flake8', 'mypy'],
 \   'javascript': ['eslint', 'flow'],
+\   'rust': ['cargo', 'rls'],
 \}
 " No fixers are setup by default, so everything is manual
 " For css: just run through prettier
@@ -273,6 +276,9 @@ let g:ale_linters = {
 " javascript: prettier, again
 " python: heavy handed, reformat, sort imports, and misc generic cleanup in
 " case yapf doesn't get them.
+" rust: just rustfmt
+" c: clang-fomat
+" cpp: also clang-format
 let g:ale_fixers = {
 \   'css': [
 \       'prettier',
@@ -288,6 +294,15 @@ let g:ale_fixers = {
 \       'isort',
 \       'remove_trailing_lines',
 \       'trim_whitespace',
+\   ],
+\   'rust': [
+\	'rustfmt',
+\   ],
+\   'c': [
+\       'clang-format',
+\   ],
+\   'cpp': [
+\       'clang-format',
 \   ],
 \}
 " Stupid Unicode tricks
