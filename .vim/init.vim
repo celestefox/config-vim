@@ -129,11 +129,12 @@ if dein#load_state('~/.cache/dein')
     call dein#add('Shougo/dein.vim')
 
     " my colorscheme - solarized
-    call dein#add('altercation/vim-colors-solarized')
+    "call dein#add('altercation/vim-colors-solarized')
 
     " more colorschemes
-    call dein#add('tomasr/molokai')
+    "call dein#add('tomasr/molokai')
 
+    " Thought I didn't need this, but no, I fall back on this, so.
     call dein#add('chriskempson/base16-vim')
 
     " airline and related (mainly the themes)
@@ -162,9 +163,9 @@ if dein#load_state('~/.cache/dein')
     call dein#add('tpope/vim-fugitive')
     " sleuth: heuristically set buffer options
     " this is causing a weird problem sometimes but i really like it still :c
-    call dein#add('tpope/vim-sleuth')
+    " call dein#add('tpope/vim-sleuth')
     " markdown - markdown support, simple as that
-    call dein#add('tpope/vim-markdown')
+    " call dein#add('tpope/vim-markdown')
 
     " vim-dispatch - async build/test dispatcher, used by salve/fireplace below
     call dein#add('tpope/vim-dispatch')
@@ -210,7 +211,7 @@ if dein#load_state('~/.cache/dein')
     " the error? :shrug:
     " I originally tried to use something that didn't work and followed a
     " chain of updates to find this one.
-    call dein#add('luochen1990/rainbow')
+    "call dein#add('luochen1990/rainbow')
 
     " webapi-vim - an interface to various types of web apis
     " used by an optional feature of rust.vim
@@ -228,6 +229,19 @@ if dein#load_state('~/.cache/dein')
     " It turns out building this is bad on a VPS :P
     "call dein#add('Valloric/YouCompleteMe', {'build': 'python install.py --rust-completer --js-completer'})
     call dein#add('Valloric/YouCompleteMe', {'merged': 0})
+    " real close to trying switching to deoplete or something...
+
+    " Snippets! :o
+    call dein#add('SirVer/ultisnips')
+    " and the actual snippets:
+    call dein#add('honza/vim-snippets')
+
+    " Adds a ui for dein (like vim-plug I guess?) Why not.
+    " Surprise, it didn't want to work.
+    "call dein#add('wsdjeg/dein-ui.vim')
+
+    " Make cmake nicer to work with
+    call dein#add('vhdirk/vim-cmake')
 
     """"" Python Plugins
     " python-mode - pylint, rope, pydoc, more
@@ -267,11 +281,15 @@ endif
 " Attempting to get rust to use rls??
 " I don't care *which* linter was being so frustrating and useless w/ html I
 " just want it gone
+" Trying cquery as my linter, language server that understands
+" compile_commands.json files so it sounds... pretty good I guess
 let g:ale_linters = {
 \   'python': ['flake8', 'mypy'],
 \   'javascript': ['eslint', 'flow'],
 \   'rust': ['cargo', 'rls'],
 \   'html': ['htmlhint', 'tidy'],
+\   'c': ['cquery'],
+\   'cpp': ['cquery'],
 \}
 " No fixers are setup by default, so everything is manual
 " For css: just run through prettier
@@ -315,6 +333,9 @@ let g:ale_sign_error = "💥"
 let g:ale_sign_style_warning = "💈"  " get it?  /style/ issues?  wow tough crowd
 let g:ale_sign_style_error = "🚨"
 
+" C Troubles :/
+let g:ale_c_parse_compile_commands=1
+
 " YCM?
 let g:ycm_server_python_interpreter = '/usr/bin/python'
 
@@ -325,6 +346,16 @@ let g:airline#extensions#ale#warning_symbol = "🚩"
 "let g:airline_left_sep = "\uE0C6"
 "let g:airline_right_sep = "\uE0C7"
 let g:airline_theme='base16_oceanicnext'
+
+let g:cmake_export_compile_commands=1
+let g:cmake_ycm_symlinks=1
+
+" UltiSnips config
+let g:UltiSnipsExpandTrigger="<C-q>"
+"let g:UltiSnipsJumpForwardTrigger="<C-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<C-z>"
+
+let g:UltiSnipsEditSplit="vertical"
 
 " Denite (searcher for files in the current dir, but also ag, buffers, ...)
 " Most of this comes straight from the documentation.
@@ -419,6 +450,30 @@ noremap <Leader>u :GundoToggle<CR>
 " Autocmds to make dispatch even more useful
 " autocmd FileType java let b:dispatch = 'javac %' " example for plain java
 " ...Why do I have this, again?
+
+if has('nvim')
+  tnoremap <A-Esc> <C-\><C-n>
+  " Terminal
+  tnoremap <A-h> <C-\><C-n><C-w>h
+  tnoremap <A-j> <C-\><C-n><C-w>j
+  tnoremap <A-k> <C-\><C-n><C-w>k
+  tnoremap <A-l> <C-\><C-n><C-w>l
+  " Insert
+  inoremap <A-h> <Esc><C-w>h
+  inoremap <A-j> <Esc><C-w>j
+  inoremap <A-k> <Esc><C-w>k
+  inoremap <A-l> <Esc><C-w>l
+  " Visual
+  vnoremap <A-h> <Esc><C-w>h
+  vnoremap <A-j> <Esc><C-w>j
+  vnoremap <A-k> <Esc><C-w>k
+  vnoremap <A-l> <Esc><C-w>l
+  " Normal
+  nnoremap <A-h> <C-w>h
+  nnoremap <A-j> <C-w>j
+  nnoremap <A-k> <C-w>k
+  nnoremap <A-l> <C-w>l
+endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
